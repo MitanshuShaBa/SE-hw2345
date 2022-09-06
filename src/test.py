@@ -1,4 +1,3 @@
-import config
 import num
 import Sym
 import main
