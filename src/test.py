@@ -9,6 +9,15 @@ def big_num():
         obj.add(i)
     assert len(obj._has) == 32
 
+def test_Sym():
+    obj = Sym.Sym()
+    for value in ["a","a","a","a","b","b","c"] :
+        obj.add(value)
+    mode, entropy = obj.mid(), obj.div()
+    entropy = (entropy*1000)//1/1000
+    assert( mode=="a" and 1.37 <= entropy and entropy <=1.38)   
+
 if __name__ == "__main__":
     big_num()
+    test_Sym()
     print("All test cases passed")
