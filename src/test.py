@@ -17,7 +17,16 @@ def test_Sym():
     entropy = (entropy*1000)//1/1000
     assert( mode=="a" and 1.37 <= entropy and entropy <=1.38)   
 
+def test_num():
+    obj = num.num()
+    main.the["nums"] = 512
+    for i in range(1, 101):
+        obj.add(i)
+    mid, div=obj.mid(), obj.div()
+    assert mid <= 52 and mid >=50 and div<32 and div > 30.5
+
 if __name__ == "__main__":
     big_num()
     test_Sym()
+    test_num()
     print("All test cases passed")
