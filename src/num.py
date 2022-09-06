@@ -19,3 +19,18 @@ class num():
             sorted(self._has)
             self.isSorted = True      
         return self._has
+
+    def add(self,v):
+        pos = 0
+        if v is not None:
+            self.n += 1
+            self.lo = min(self.lo, v)
+            self.hi = max(self.hi, v)
+            if len(self._has) < main.the["nums"] : 
+                pos = 1 + len(self._has)
+            elif random.randint(0, len(self._has)) < main.the["nums"]/self.n :
+                pos = random.randint(0, len(self._has))
+            
+            if pos != 0: 
+                self.isSorted = False
+                self._has[pos] = int(v)  
