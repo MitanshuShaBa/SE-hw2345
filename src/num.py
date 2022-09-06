@@ -34,3 +34,14 @@ class num():
             if pos != 0: 
                 self.isSorted = False
                 self._has[pos] = int(v)  
+                
+    def per(self,t,p):
+        p = math.floor(p*len(t)+0.5)
+        return (t[max(1,min(len(t),p))])
+
+    def div(self):
+        a = self.nums()
+        return (self.per(a,0.9) - self.per(a,0.1))/2.58
+
+    def mid(self):
+        return(self.per(self.nums(),0.5))            
