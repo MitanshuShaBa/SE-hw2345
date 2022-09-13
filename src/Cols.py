@@ -3,7 +3,7 @@ import num
 import Sym
 
 class Cols:
-    def _init_(self, names):
+    def __init__(self, names):
         self.names = names
         self.all = {}
         self.klass =  None
@@ -22,6 +22,6 @@ class Cols:
                     self.x[k] = value 
                 if re.search("!$", value):
                     self.klass[k]=value
-                    
+
 
 
