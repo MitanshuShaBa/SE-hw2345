@@ -1,12 +1,13 @@
+import unittest
 import num
 import Sym
 import main
 import Data as data
 import sys
+import csv_
 
 sys.path.append("../code/")
 
-import unittest
 
 class TestCSVReader(unittest.TestCase):
 
@@ -32,44 +33,59 @@ class TestCSVReader(unittest.TestCase):
             obj.add(i)
         mid, div = obj.mid(), obj.div()
         assert mid <= 52 and mid >= 50 and div < 32 and div > 30.5
-    
-    def test_data(self):
-        d = data.Data("../data/sample.csv")
-        for _, col in d.cols.y.items():
-            if not isinstance(col, num.Num):
-                continue
-            print(
-                "{ "
-                + f":at {col.at} :hi {col.high} :isSorted {col.isSorted} :lo {col.lo} :n {col.n} :name {col.name} :w {col.w}"
-                + " }"
-            )
-        return True, "PASS"
 
-    def test_csv():
-        print("{", end=" ")
-        d = data.Data("../data/sample.csv")
-        for i, col in d.cols.all.items():
-            print(col.name, end=" ")
-        print("}")
-        for i, row in d.rows.items():
+    def test_csv(self):
+        d, _, _, _, _, _, _ = csv_.read("./data/sample.csv", ",")
+        n = len(d)
+        print()
+        print("Length of data:", n)
+        for i, row in enumerate(d):
             if i > 10:
                 break
-            print("{", end=" ")
-            for j, cell in row.cells.items():
-                print(cell, end=" ")
-            print("}")
+            print(*row, sep=", ")
+        print()
 
-        return True, "PASS"
+        assert n == 399
 
-    def test_stats():
-    
+    def test_data(self):
         d = data.Data("../data/sample.csv")
         print()
-        print("xmid", d.stats(fun="mid", places=2, showCols=d.cols.x))
-        print("xdiv", d.stats(fun="div", places=3, showCols=d.cols.x))
-        print("ymid", d.stats(fun="mid", places=2, showCols=d.cols.y))
-        print("ydiv", d.stats(fun="div", places=3, showCols=d.cols.y))
-        return True, "PASS"
+        for col in d.cols.y:
+            if col in d.cols.sym_columns:
+                i = d.cols.names.index(col)
+                obj = Sym.Sym(c=i+1, s=col)
+
+                for value in d.rows:
+                    obj.add(value[i])
+
+                print(obj)
+            if col in d.cols.num_columns:
+                i = d.cols.names.index(col)
+                obj = num.num(c=i+1, s=col)
+
+                for value in d.rows:
+                    obj.add(value[i])
+
+                print(obj)
+
+        print()
+
+        assert obj.n == 398
+        assert obj.name == "Mpg+"
+        assert obj.hi == 50
+
+    def test_stats(self):
+
+        d = data.Data("../data/sample.csv")
+        print()
+        print("xmid", d.stats(2, fun="mid", showCols=d.cols.x))
+        print("xdiv", d.stats(3, fun="div", showCols=d.cols.x))
+        print("ymid", d.stats(2, fun="mid", showCols=d.cols.y))
+        print("ydiv", d.stats(3, fun="div", showCols=d.cols.y))
+
+        xmid = d.stats(2, fun="mid", showCols=d.cols.x)
+        assert xmid[0][1] == 4  # Clndrs
+
 
 if __name__ == "__main__":
     unittest.main()
