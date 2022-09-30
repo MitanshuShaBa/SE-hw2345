@@ -12,4 +12,30 @@
 
 # SE HW 2345
 
-SE Homework 2345 Repository
+This homework aims to port a program written in Lua (source) to Python while using good software engineering practices. The program reads a CSV file and generate summaries of columns (medians and standard deviation for numerics; mode and entropy for symbolic columns).
+
+## Getting Started
+
+Follow the steps for setting up the project:
+
+```
+git clone https://github.com/MitanshuShaBa/SE-hw2345.git
+cd SE-hw2345
+pip install -r requirements.txt
+```
+
+## Running tests from CLI
+
+To run the test engine, execute the following command from the root directory -
+
+```python
+python src/test.py
+```
+
+## Team Members
+
+- Mitanshu Reshamwala
+- Mitul Patel
+- Praneya Lal
+- Janvi Phadtare
+- Kaksha Mhatre
