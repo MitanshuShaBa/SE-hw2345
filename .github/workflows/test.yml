@@ -23,7 +23,7 @@ jobs:
           node-version: 16.x
       - name: Test
         run: |
-          python ./src/test.py
+          python ./src\\test.py
       - name: Coverage
         run: |
           coverage run .\src\test.py
