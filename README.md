@@ -4,6 +4,12 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7127265.svg)](https://doi.org/10.5281/zenodo.7127265)
 [![Python Test](https://github.com/MitanshuShaBa/SE-HW2345/actions/workflows/test.yml/badge.svg)](https://github.com/MitanshuShaBa/SE-HW2345/actions/workflows/test.yml)
 
+<!-- Begin Code Coverage -->
+
+![Code Coverage](https://img.shields.io/badge/coverage-95.42%25-brightgreen)
+
+<!-- End Code Coverage -->
+
 # SE HW 2345
 
 SE Homework 2345 Repository
