@@ -34,6 +34,9 @@ class TestCSVReader(unittest.TestCase):
         mid, div = obj.mid(), obj.div()
         assert mid <= 52 and mid >= 50 and div < 32 and div > 30.5
 
+    def test_the(self):
+        assert main.the["eg"] == False   
+
     def test_csv(self):
         d, _, _, _, _, _, _ = csv_.read("./data/sample.csv", ",")
         n = len(d)
