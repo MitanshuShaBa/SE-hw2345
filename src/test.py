@@ -31,7 +31,19 @@ class TestCSVReader(unittest.TestCase):
         mid, div = obj.mid(), obj.div()
         assert mid <= 52 and mid >= 50 and div < 32 and div > 30.5
     
-    def test_csv(self):
+    def test_data(self):
+        d = data.Data("../data/sample.csv")
+        for _, col in d.cols.y.items():
+            if not isinstance(col, num.Num):
+                continue
+            print(
+                "{ "
+                + f":at {col.at} :hi {col.high} :isSorted {col.isSorted} :lo {col.lo} :n {col.n} :name {col.name} :w {col.w}"
+                + " }"
+            )
+        return True, "PASS"
+
+    def test_csv():
         print("{", end=" ")
         d = data.Data("../data/sample.csv")
         for i, col in d.cols.all.items():
