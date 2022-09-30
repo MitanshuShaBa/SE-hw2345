@@ -6,7 +6,7 @@
 
 <!-- Begin Code Coverage -->
 
-![Code Coverage](https://img.shields.io/badge/coverage-95.42%25-brightgreen)
+![Code Coverage](https://img.shields.io/badge/coverage-93.92%25-brightgreen)
 
 <!-- End Code Coverage -->
 

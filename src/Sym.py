@@ -8,6 +8,9 @@ class Sym:
         self.name = s
         self._has = {}
 
+    def __repr__(self):
+        return f"{{:at {self.at} :n {self.n} :name {self.name}}}"
+
     def add(self, v):
         if v is not None:
             self.n += 1

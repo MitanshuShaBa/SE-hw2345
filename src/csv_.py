@@ -2,11 +2,11 @@ import csv
 
 
 # Read the file
-def read(file, separator):
+def read(file, separator=","):
     """
     params:
     file - filename
-    separator - delimiter
+    separator - delimiter; default = ,
 
     returns (data, sym_columns, num_columns, max_columns, min_columns)"""
     data = []
@@ -15,6 +15,7 @@ def read(file, separator):
     max_columns = []
     min_columns = []
     skip_column_number = []
+    skip_column_name = []
 
     with open(file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=separator)
@@ -25,8 +26,10 @@ def read(file, separator):
             # Column names
             if line == 0:
                 for i, name in enumerate(row):
+                    name = name.strip()
                     if name.endswith(":"):
                         skip_column_number.append(i)
+                        skip_column_name.append(name)
                         continue
                     if name.endswith("+"):
                         max_columns.append(name)
@@ -48,4 +51,4 @@ def read(file, separator):
 
             line += 1
             data.append(row_data)
-    return (data, sym_columns, num_columns, max_columns, min_columns)
+    return (data, sym_columns, num_columns, max_columns, min_columns, skip_column_name, skip_column_number)
