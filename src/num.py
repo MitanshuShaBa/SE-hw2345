@@ -13,7 +13,10 @@ class num():
         self.lo = math.inf
         self.hi = -math.inf
         self.isSorted = True
-        self.w = -1 if s.find("-$") else 1
+        self.w = -1 if s.endswith("-") else 1
+
+    def __repr__(self):
+        return f"{{:at {self.at} :hi {self.hi} :isSorted {self.isSorted} :lo {self.lo} :n {self.n} :name {self.name} :w {self.w}}}"
 
     def nums(self):
         if self.isSorted is False:
