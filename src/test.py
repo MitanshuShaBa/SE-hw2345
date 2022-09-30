@@ -3,7 +3,6 @@ import Sym
 import main
 import unittest
 
-
 class TestCSVReader(unittest.TestCase):
 
     def test_big_num(self):
