@@ -2,7 +2,9 @@ import num
 import Sym
 import main
 import Data as data
+import sys
 
+sys.path.append("../code/")
 
 import unittest
 
@@ -57,6 +59,16 @@ class TestCSVReader(unittest.TestCase):
                 print(cell, end=" ")
             print("}")
 
+        return True, "PASS"
+
+    def test_stats():
+    
+        d = data.Data("../data/sample.csv")
+        print()
+        print("xmid", d.stats(fun="mid", places=2, showCols=d.cols.x))
+        print("xdiv", d.stats(fun="div", places=3, showCols=d.cols.x))
+        print("ymid", d.stats(fun="mid", places=2, showCols=d.cols.y))
+        print("ydiv", d.stats(fun="div", places=3, showCols=d.cols.y))
         return True, "PASS"
 
 if __name__ == "__main__":
