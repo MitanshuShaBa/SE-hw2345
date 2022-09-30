@@ -23,11 +23,10 @@ jobs:
           node-version: 16.x
       - name: Test
         run: |
-          ls
-          python ./src\\test.py
+          python .\\src\\test.py
       - name: Coverage
         run: |
-          coverage run .\src\test.py
+          coverage run .\\src\\test.py
           coverage json
           node ${GITHUB_WORKSPACE}/.github/coverage.js
       - uses: EndBug/add-and-commit@v9
