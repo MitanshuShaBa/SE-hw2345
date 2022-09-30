@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: 3.7
       - name: Install dependancies
-        run: pip install requirements.txt
+        run: pip install -r requirements.txt
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
