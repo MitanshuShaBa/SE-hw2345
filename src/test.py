@@ -8,7 +8,7 @@ def big_num():
     main.the["nums"] = 32
     for i in range(1, 1001):
         obj.add(i)
-    assert len(obj._has) == 31
+    assert len(obj._has) == 32
 
 
 def test_Sym():
