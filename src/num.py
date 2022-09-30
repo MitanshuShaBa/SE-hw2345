@@ -16,7 +16,7 @@ class num():
         self.w = -1 if s.find("-$") else 1
 
     def nums(self):
-        if self.isSorted == False:
+        if self.isSorted is False:
             sorted(self._has)
             self.isSorted = True
         return self._has

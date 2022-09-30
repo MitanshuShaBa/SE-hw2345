@@ -28,7 +28,7 @@ def read(file, separator):
                     if name.endswith(":"):
                         skip_column_number.append(i)
                         continue
-                    elif name.endswith("+"):
+                    if name.endswith("+"):
                         max_columns.append(name)
                     elif name.endswith("-"):
                         min_columns.append(name)
