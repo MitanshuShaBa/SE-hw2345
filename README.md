@@ -10,6 +10,19 @@
 
 <!-- End Code Coverage -->
 
-# SE HW 2345
+# CSC 510 HW-2345 (Group 6)
 
-SE Homework 2345 Repository
+CSC 510 HW-2345 is focused on making use of industry standard Software Engineering practices for code integration and deployment. The program in this homework reads a CSV file and creates summaries of columns.
+
+# Description
+Num - Numeric Class 
+Sym - Symbols Class
+We calculate the median and standard deviation for numeric columns and mode and entropy for symbolic columns of the csv file.
+
+## Installation
+
+Please check [INSTALL.md](INSTALL.md) for detailed steps on installation
+
+## Run tests from Command Line Interface
+
+You can run tests on the code using `cli.py`.
