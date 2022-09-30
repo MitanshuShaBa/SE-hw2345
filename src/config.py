@@ -5,7 +5,7 @@ def create():
     arguments = sys.argv
 
     # Creating the config
-    the = {"eg": False, "dump": False, "file": ".\\data\\sample.csv",
+    the = {"eg": False, "dump": False, "file": "./data/sample.csv",
            "help": False, "nums": 512, "seed": 10019, "separator": ","}
 
     for i, arg in enumerate(arguments):
