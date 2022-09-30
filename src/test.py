@@ -1,6 +1,9 @@
 import num
 import Sym
 import main
+import Data as data
+
+
 import unittest
 
 class TestCSVReader(unittest.TestCase):
@@ -27,7 +30,22 @@ class TestCSVReader(unittest.TestCase):
             obj.add(i)
         mid, div = obj.mid(), obj.div()
         assert mid <= 52 and mid >= 50 and div < 32 and div > 30.5
+    
+    def test_csv(self):
+        print("{", end=" ")
+        d = data.Data("../data/sample.csv")
+        for i, col in d.cols.all.items():
+            print(col.name, end=" ")
+        print("}")
+        for i, row in d.rows.items():
+            if i > 10:
+                break
+            print("{", end=" ")
+            for j, cell in row.cells.items():
+                print(cell, end=" ")
+            print("}")
 
+        return True, "PASS"
 
 if __name__ == "__main__":
     unittest.main()
